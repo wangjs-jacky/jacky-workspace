@@ -1,4 +1,5 @@
 import { defineConfig } from 'dumi';
+const path = require("path");
 
 export default defineConfig({
   title: 'jacky-workspace-dumi',
@@ -20,5 +21,15 @@ export default defineConfig({
       },
     ],
   ],
-  // more config: https://d.umijs.org/config
+  chainWebpack(memo, { env, webpack, createCSSRule }) {
+    memo.module
+      .rule('svg')
+      .test(/\.svg$/)
+      .use('svg-sprite-loader')
+      .loader('svg-sprite-loader')
+    memo.module
+      .rule('svg')
+      .test(/\.svg?/)
+      .uses.delete('file-loader');
+  }
 });

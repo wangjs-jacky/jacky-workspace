@@ -5,7 +5,10 @@
     "moduleResolution": "node",
     "jsx": "react",
     "esModuleInterop": true,
-    "types": ["jest"],
+    "types": [
+      "jest",
+      "webpack-env"
+    ],
     "strict": true,
     "skipLibCheck": true,
     "declaration": true
