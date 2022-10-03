@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { Children } from 'react';
+import Dialog from '.';
+import useBoolean from '../../aHooks/useBoolean';
 
-function Demo() {
+const Demo: React.FC = () => {
+  const [isShow, { toggle }] = useBoolean(false);
   return (
     <div>
-      Demo
+      <button onClick={() => toggle()}>切换</button>
+      <Dialog visible={isShow}>
+        <div>hi</div>
+      </Dialog>
     </div>
   );
-}
+};
 
 export default Demo;

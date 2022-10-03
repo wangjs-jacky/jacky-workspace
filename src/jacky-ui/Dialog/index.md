@@ -7,4 +7,6 @@ group:
 
 # Dialog 对话框
 
+模态对话框。
+
 <code src="./demo">
