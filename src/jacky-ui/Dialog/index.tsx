@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Icon from '../Icon';
 import './dialog.scss';
 
@@ -24,7 +25,7 @@ const Dialog: React.FC<PropsType> = ({ visible, buttons, children, onClose, clos
   const onClickMask = (e: React.MouseEvent<Element, MouseEvent>) => {
     closeOnClickMask && onClose(e);
   };
-  return visible ? (
+  const result = visible ? (
     <>
       <div className="sui-dialog-mask" onClick={onClickMask}></div>
       <div className="sui-dialog">
@@ -43,6 +44,7 @@ const Dialog: React.FC<PropsType> = ({ visible, buttons, children, onClose, clos
       </div>
     </>
   ) : null;
+  return ReactDOM.createPortal(result, document.body);
 };
 
 export default Dialog;
