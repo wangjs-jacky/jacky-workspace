@@ -7,7 +7,7 @@ const Demo: React.FC = () => {
   return (
     <div>
       <button onClick={() => toggle()}>切换</button>
-      <Dialog visible={isShow}>
+      <Dialog visible={isShow} buttons={[<button>确定</button>, <button>取消</button>]}>
         <div>hi</div>
       </Dialog>
     </div>

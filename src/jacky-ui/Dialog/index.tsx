@@ -10,9 +10,10 @@ import './dialog.scss';
 interface PropsType {
   visible: boolean;
   children: React.ReactNode;
+  buttons?: React.ReactElement[];
 }
 
-const Dialog: React.FC<PropsType> = ({ visible, children }) => {
+const Dialog: React.FC<PropsType> = ({ visible, buttons, children }) => {
   return visible ? (
     <>
       <div className="sui-dialog-mask"></div>
@@ -23,8 +24,11 @@ const Dialog: React.FC<PropsType> = ({ visible, children }) => {
         <div className="sui-dialog-header"> 提示 </div>
         <div className="sui-dialog-main">{children}</div>
         <div className="sui-dialog-footer">
-          <button>确定</button>
-          <button>取消</button>
+          {buttons &&
+            buttons.map((button, index) => {
+              /* 在 Element 中绑定 key  */
+              return React.cloneElement(button, { key: index });
+            })}
         </div>
       </div>
     </>
