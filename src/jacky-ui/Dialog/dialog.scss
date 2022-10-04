@@ -1,8 +1,9 @@
+@import "../variable";
+
 .sui-dialog {
   position: fixed;
   background-color: white;
   min-width: 15em;
-  min-height: 10em;
   border-radius: 4px;
 
   /* 居中 */
@@ -20,11 +21,39 @@
   }
 
   /* dialog header 栏 */
-  &-header {}
+  &-header {
+    font-size: 22px;
+    padding: 8px 16px;
+    border-bottom: 1px solid grey;
+  }
 
-  &-main {}
+  &-main {
+    min-height: 6em;
+    padding: 8px 16px;
+  }
 
-  &-footer {}
+  &-footer {
+    border-top: 1px solid grey;
+    padding: 8px 16px;
+    display: flex;
+    justify-content: flex-end;
+  }
 
-  &-close {}
+  &-close {
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    background: transparent;
+    color: white;
+    /* 对自己的居中 */
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background-color: $main-color;
+    transform: translate(50%, -50%);
+    /* 对内的居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
