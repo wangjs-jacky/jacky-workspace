@@ -1,4 +1,4 @@
-import { defineConfig } from 'dumi';
+import { defineConfig, utils } from 'dumi';
 const path = require("path");
 
 export default defineConfig({
@@ -31,5 +31,20 @@ export default defineConfig({
       .rule('svg')
       .test(/\.svg?/)
       .uses.delete('file-loader');
+
+    /* createCSSRule({
+      lang: 'sass',
+      test: /\.(sass|scss)(\?.*)?$/,
+      loader: require.resolve('sass-loader'),
+      options: utils.deepmerge(
+        {
+          implementation: require('sass'),
+        },
+        api.config.sass || {},
+      ),
+    }); */
+
+    return memo;
+
   }
 });

@@ -1,4 +1,4 @@
-import React, { Children } from 'react';
+import React from 'react';
 import Dialog from '.';
 import useBoolean from '../../aHooks/useBoolean';
 
