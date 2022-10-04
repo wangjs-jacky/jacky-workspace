@@ -57,3 +57,20 @@
     align-items: center;
   }
 }
+
+button {
+  box-sizing: border-box;
+  height: 32px;
+  /* 所有 button 的样式 */
+  margin: 0 4px;
+
+  /* 需要处理 第一个 和 最后一个 button */
+  &:first-child {
+    margin-left: 0px;
+  }
+
+  &:last-child {
+    margin-right: 0px;
+  }
+
+}
