@@ -1,5 +1,4 @@
-import { defineConfig, utils } from 'dumi';
-const path = require("path");
+import { defineConfig } from 'dumi';
 
 export default defineConfig({
   title: 'jacky-workspace-dumi',
@@ -8,6 +7,10 @@ export default defineConfig({
   outputPath: 'docs-dist',
   mode: 'site',
   publicPath: '/jacky-workspace-html/',
+  manifest: {
+    basePath: '/jacky-workspace-html/'
+  },
+  base: "/jacky-workspace-html/",
   logo: '/logo.svg',
   alias: {
     "@": "/src/aHooks/"
