@@ -5,9 +5,10 @@
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
+    "publish": "bash ./deploy.sh",
     "docs:deploy": "gh-pages -d docs-dist",
     "build": "father build",
-    "deploy": "npm run docs:build && npm run docs:deploy",
+    "deploy": "npm run docs:build && npm run docs:deploy && npm run publish",
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage",

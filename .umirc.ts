@@ -7,6 +7,7 @@ export default defineConfig({
     '/logo.svg',
   outputPath: 'docs-dist',
   mode: 'site',
+  publicPath: '/jacky-workspace-html/',
   logo: '/logo.svg',
   alias: {
     "@": "/src/aHooks/"

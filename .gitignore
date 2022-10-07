@@ -11,7 +11,7 @@
 /es
 /docs-dist
 /dist
-
+/deploy.sh
 # misc
 .DS_Store
 /coverage
