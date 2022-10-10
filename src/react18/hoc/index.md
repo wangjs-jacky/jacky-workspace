@@ -1,6 +1,8 @@
 ---
 group:
   title: HOC
+
+order: 1
 ---
 
 # HOC 基础
