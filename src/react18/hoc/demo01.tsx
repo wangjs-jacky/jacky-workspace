@@ -2,7 +2,7 @@ import React from 'react';
 
 /* type ComponentType<P = {}> = ComponentClass<P> | FunctionComponent<P>; */
 
-const CreateWrapper = (title: string) => {
+const CreateWithComponent = (title: string) => {
   /* 返回一个 HOC（即，入参组件，出参也是组件） */
   /* 难点：入参组件既有可能是一个 Class 也可能是 Function Component */
   return <P extends {}>(Component: React.ComponentType<P>) => {
@@ -25,8 +25,8 @@ const ComponentA: React.FC<ComponentAType> = ({ attr }) => {
   return <div style={{ backgroundColor: 'aquamarine', height: '80px' }}>Component-{attr}</div>;
 };
 
-/* 使用 CreateWrapper 创造具有一个相同名称的 HOC */
-const HOC = CreateWrapper('child1');
+/* 使用 CreateWithComponent 创造具有一个相同名称的 HOC */
+const HOC = CreateWithComponent('child1');
 
 /* 使用 HOC 生成可供消费组件 */
 const Wrapper = HOC(ComponentA);
