@@ -1,0 +1,29 @@
+.strip-loading-new {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 250px;
+  border: 1px solid #000;
+  li {
+    --time: calc(var(--inline-index) * 200ms);
+    width: 6px;
+    height: 30px;
+    background-color: #f66;
+    border-radius: 3px;
+    animation: beat2 2s ease var(--time) infinite;
+    & + li {
+      margin-left: 5px;
+    }
+  }
+}
+
+@keyframes beat2 {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0);
+  }
+}

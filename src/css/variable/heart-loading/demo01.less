@@ -1,0 +1,45 @@
+.heart-loading-1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 250px;
+  border: 1px solid #000;
+  ul {
+    display: flex;
+    justify-content: space-between;
+    width: 150px;
+    height: 1px;
+    border: 1px solid #000;
+    li {
+      width: 10px;
+      height: 10px;
+      background-color: #f66;
+      border-radius: 5px;
+      &:first-child,
+      &:nth-child(9) {
+        height: 30px;
+        transform: translateY(-15px);
+      }
+      &:nth-child(2),
+      &:nth-child(8) {
+        height: 60px;
+        transform: translateY(-30px);
+      }
+      &:nth-child(3),
+      &:nth-child(7) {
+        height: 80px;
+        transform: translateY(-40px);
+      }
+      &:nth-child(4),
+      &:nth-child(6) {
+        height: 90px;
+        transform: translateY(-30px);
+      }
+      &:nth-child(5) {
+        height: 90px;
+        transform: translateY(-20px);
+      }
+    }
+  }
+}

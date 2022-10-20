@@ -1,0 +1,63 @@
+/* 样式重置 */
+ul {
+  padding: 0px;
+  /* 去除自带的ugly样式。 */
+  list-style: none;
+}
+
+.strip-loading-old {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 250px;
+  border: 1px solid #000;
+  li {
+    width: 6px;
+    height: 30px;
+    background-color: #f66;
+    border-radius: 3px;
+    /* animation
+       - 1s : duration
+       - ease-in-out： 线性，弹性
+       - infinity: 运动模式
+       - 还有一个延迟执行，但是这里由关键帧控制
+    */
+    animation: beat 2s ease-in-out infinite;
+    /* 技巧：选中除第一个以外所有的元素 */
+    & + li {
+      margin-left: 5px;
+    }
+    /* &:对自身进行设置 */
+    &:nth-child(2) {
+      animation-delay: 200ms; /* 延迟执行 */
+    }
+    &:nth-child(3) {
+      animation-delay: 400ms;
+    }
+    &:nth-child(4) {
+      animation-delay: 600ms;
+    }
+    &:nth-child(5) {
+      animation-delay: 800ms;
+    }
+    /* 问题：存在缺陷，无法通过 */
+    &:nth-child(6) {
+      animation-delay: 1s; /* 1个周期后再执行 */
+    }
+  }
+}
+
+/* beat 定义关键帧
+   0和100 相同：定义往复运动
+*/
+@keyframes beat {
+  0%,
+  100% {
+    /* scaleY - css 函数 */
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.5);
+  }
+}
