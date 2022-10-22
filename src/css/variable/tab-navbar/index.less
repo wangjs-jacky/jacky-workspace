@@ -1,0 +1,52 @@
+.tab-navbar {
+  display: flex;
+  flex-direction: column;
+  flex-direction: column-reverse;
+  width: 300px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 10px;
+  nav {
+    display: flex;
+    /* 对内居中 */
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #f0f0f0;
+    label {
+      flex: 1;
+      cursor: pointer;
+      transition: all 300ms;
+      /* 技巧 */
+      & + label {
+        border-left: 1px dashed #000;
+      }
+      /* & 相当于一种内嵌写法 */
+      &.active {
+        color: #fff;
+        background-color: #3c9;
+      }
+    }
+  }
+  main {
+    flex: 1;
+    ul {
+      display: flex;
+      width: var(--tab-width);
+      height: 100%;
+      transform: translateX(var(--tab-move));
+      transition: all 300ms;
+      --tab-width: calc(var(--tab-count) * 100%);
+      /* 使用 --tab-index 标识当前激活变量 */
+      --tab-move: calc(var(--tab-index) / var(--tab-count) * -100%);
+      li {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        background-color: var(--bg-color);
+      }
+    }
+  }
+}
