@@ -1,0 +1,29 @@
+.onepx-border {
+  width: 200px;
+  color: #f66;
+  font-size: 40px;
+  line-height: 40px;
+  text-align: center;
+  & + .onepx-border {
+    margin-top: 10px;
+  }
+
+  &.normal {
+    border: 1px solid #f66;
+  }
+  &.thin {
+    position: relative;
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      border: 1px solid #f66;
+      transform: scale(0.5);
+      /* 放缩中心：左上角 */
+      transform-origin: left top;
+      content: '';
+    }
+  }
+}
