@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  border: 1px solid #000;
+}
+.heart-shape {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin-left: 50px;
+  background-color: #f66;
+  transform: rotate(45deg);
+  /* 先把形状做出来 */
+  &::before,
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f66;
+    border-radius: 100%;
+    content: '';
+  }
+  /* 将圆调整到合适的位置
+    注：测试整个 x 轴和 y 轴也是斜着的
+  */
+  &::before {
+    transform: translateX(-50%);
+  }
+  &::after {
+    transform: translateY(-50%);
+  }
+}
