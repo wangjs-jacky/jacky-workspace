@@ -1,0 +1,38 @@
+.suspend-button {
+  position: relative;
+  display: inline-block;
+  width: 400px;
+  height: 50px;
+  overflow: hidden;
+  color: #fff;
+  font-weight: bold;
+  line-height: 50px;
+  text-align: center;
+  background-color: #66f;
+  border-radius: 25px;
+  cursor: pointer;
+  span {
+    position: relative;
+  }
+  /* 构造一个颜色层 */
+  &::before {
+    position: absolute;
+    right: var(--y);
+    left: var(--x);
+    width: var(--size);
+    height: var(--size);
+    /* 增加光源效果 */
+    background-image: radial-gradient(circle closest-side, #09f, transparent);
+    transform: translate(-50%, -50%);
+    /* 添加光源进入的效果：由小变大 */
+    transition: width 200ms ease, height 200ms ease;
+    content: '';
+    --size: 0;
+  }
+  &:hover {
+    color: #fff;
+  }
+  &:hover::before {
+    --size: 400px;
+  }
+}
