@@ -8,6 +8,7 @@ function HeartLoading() {
         {Object.keys(new Array(9).fill(null)).map((item, index) => {
           return (
             <li
+              key={index}
               className={`line-${index}`}
               style={{ '--line-index': index } as React.CSSProperties}
             ></li>

@@ -6,7 +6,7 @@ function HeartLoading() {
     <div className="heart-loading-1">
       <ul>
         {Object.keys(new Array(9).fill(null)).map((item, index) => {
-          return <li style={{ '--line-index': index } as React.CSSProperties}></li>;
+          return <li key={index} style={{ '--line-index': index } as React.CSSProperties}></li>;
         })}
       </ul>
     </div>
