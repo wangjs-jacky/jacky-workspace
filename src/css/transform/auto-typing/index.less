@@ -1,0 +1,36 @@
+/* 封装 less 函数 */
+.delay(@count:0,@duration:0s,@delay:0s) {
+  overflow: hidden;
+  font-weight: bold;
+  font-family: Consolas, Monaco, monospace;
+  white-space: nowrap;
+  border-right: 1px solid;
+  /* steps: GIF 的帧数 */
+  animation: auto-typing @duration steps(@count) @delay infinite alternate,
+    caret var(--time-per-second) steps(1) infinite;
+}
+
+.auto-typing {
+  --count: calc(var(--word-length) + 1);
+  --duration: calc(var(--count) * var(--time-per-second));
+  color: #f66;
+  .delay(var(--count) , var(--duration));
+}
+
+@keyframes auto-typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: calc(var(--count) * 1ch);
+  }
+}
+
+@keyframes caret {
+  0% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #f66;
+  }
+}
