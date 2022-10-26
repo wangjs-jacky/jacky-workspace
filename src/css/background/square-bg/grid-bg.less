@@ -1,0 +1,13 @@
+.grid-bg {
+  width: 200px;
+  height: 200px;
+  background-color: #f66;
+  /* 第一条：0deg: 从下往上 (底线)
+     第二条：90deg: 从左往右 (左边线)
+  */
+  background-image: linear-gradient(0deg, #fff 5%, transparent 5%, transparent),
+    linear-gradient(90deg, #fff 5%, transparent 5%, transparent);
+  background-repeat: repeat-x repeat-y;
+  background-position: 0 0, 20px 20px;
+  background-size: 20px 20px;
+}

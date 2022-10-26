@@ -30,3 +30,31 @@ color: transparent;
 ```
 
 <code src="./hollow-text" >
+
+### 方格背景
+
+step-1 : 使用 `linear-gradient` 创建一个带有明确边界的图案
+
+```css
+linear-gradient(180deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%);
+
+```
+
+<code src="./square-bg/single-square-1">
+
+step-2 : `linear-gradient` 推荐使用角度
+
+```css
+linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%);
+
+```
+
+<code src="./square-bg/single-square-2">
+
+step-3: 使用 `repeat` 拷贝
+
+<code src="./square-bg">
+
+### 网格背景
+
+<code src="./square-bg/grid-bg">
