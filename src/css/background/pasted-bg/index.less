@@ -1,0 +1,16 @@
+@bg: 'https://jowayyoung.github.io/static/img/icss/mountain.jpg';
+.pasted-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 300px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 80px;
+  /* text-shadow 没有掌握 */
+  text-shadow: 2px 2px 5px rgba(#000, 0.5);
+  /* 难点： background 属性的连写（没有强制顺序要求） */
+  /* 注：background-origin 和 -clip 无法参与连写 */
+  background: #000 url(@bg) no-repeat center top/auto 300px;
+}
