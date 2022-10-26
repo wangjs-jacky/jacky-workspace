@@ -1,0 +1,27 @@
+.gradient-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+  font-weight: bold;
+  font-size: 100px;
+  text-shadow: 2px 2px 5px rgba(#000, 0.5);
+  background-image: linear-gradient(135deg, #ffffff 0%, #6284ff 50%, #ff0000 100%);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 400% 400%;
+  background-clip: text;
+  background-blend-mode: hard-light;
+  border: 1px solid #000;
+  animation: color-moving 5s infinite;
+}
+
+@keyframes color-moving {
+  0%,
+  100% {
+    background-position-x: left;
+  }
+  50% {
+    background-position-x: right;
+  }
+}

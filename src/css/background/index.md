@@ -33,6 +33,8 @@ color: transparent;
 
 ### 方格背景
 
+> 方格背景的实现非常具有技巧性，通过以下三个分解动作来帮助理解图形的绘制。
+
 step-1 : 使用 `linear-gradient` 创建一个带有明确边界的图案
 
 ```css
@@ -53,8 +55,26 @@ linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%);
 
 step-3: 使用 `repeat` 拷贝
 
+使用 `background-position` step 向上向右平移一般距离。
+
 <code src="./square-bg">
 
 ### 网格背景
 
 <code src="./square-bg/grid-bg">
+
+### 渐变背景
+
+原理分析：
+
+1. 使用 `background-size` 让背景图的尺寸远超容器的尺寸，因此使用 `200% 200%` 这种写法是比较合适的。
+
+2. 我们知道 `background-position` 属性可以对背景图进行定位切换，其中 `background-position-x` 可以单独对移动背景尺寸图的横坐标。此时只需要结合 `animation` 让该尺寸从 `left` 变化到 `right`，即可实现渐变背景的效果。
+
+<code src="./gradient-bg">
+
+### 渐变文字
+
+文字的话，也可以使用上述 `background-clip` 这个属性实现，但是效果一般
+
+<code src="./gradient-text">
