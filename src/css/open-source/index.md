@@ -44,3 +44,17 @@ CSS 像素风
 实现新拟态效果
 
 <Iframe src="https://neumorphism.io/"></Iframe>
+
+## FlatuiColors
+
+颜色库
+
+<Iframe src="https://flatuicolors.com/"></Iframe>
+
+## CSS Gradient
+
+自动生成 `linear-gradient`
+
+<Iframe src="https://cssgradient.io/"></Iframe>
+
+<Iframe src="https://cssgradient.io/gradient-backgrounds/"></Iframe>
