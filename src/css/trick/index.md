@@ -3,8 +3,6 @@ group:
   title: Trick 篇
 ---
 
-
-
 ## 案例知识点拆解
 
 ### 制造间隙的两种方式：
@@ -44,17 +42,15 @@ group:
   &::before {
     width: var(--size);
     height: var(--size);
-    --size: 0px;
-    /* 添加渐进渐出的效果 */  
     transition: width 200ms ease, height 200ms ease;
+    --size: 0px;
+    --size: 0px;
   }
-  
+
   &:hover:before {
     --size: 400px;
   }
   ```
-
-
 
 ### 如何实现一个鼠标跟随效果？
 
@@ -71,17 +67,12 @@ group:
     height: 200px;
     transform: translate(-50%, -50%);
   }
-  
+
   /* 如果居中，直接添加 margin-left/top */
   ::before {
     + margin-left: 50%;
     + margin-top: 50%;
   }
+  ```
 
-
-
-
-
-
-
-## 
+##

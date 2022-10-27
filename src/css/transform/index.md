@@ -3,7 +3,7 @@ group:
   title: 进阶篇
 ---
 
-## 变化与动画
+## Transform & Animation
 
 ### 心形
 
@@ -23,7 +23,7 @@ group:
 
 <code src="./flip-content">
 
-## `Transition` 的使用
+## `Animation` 及 `Transition`
 
 > 背景知识：[transition](https://developer.mozilla.org/zh-CN/docs/Web/CSS/transition)
 
@@ -46,12 +46,12 @@ group:
 
 > 知识点：[animation](https://developer.mozilla.org/zh-CN/docs/Web/CSS/animation)
 
-| 参数名称                  | 含义                         | 举例                                                         |
-| ------------------------- | ---------------------------- | ------------------------------------------------------------ |
-| `animation-name`          | `@keyframes` 的名称          | 如：`auto-typing`                                            |
-| `animation-duration`      | 动画持续时间                 | 100ms                                                        |
-| `animation-time-function` | 运动函数                     | 关键帧及逐帧两种模式，如果是关键帧，可以使用 `贝塞尔函数`，逐帧则是使用 `steps`（打字机） |
-| `animation-delay`         | 延迟时间                     | 0ms                                                          |
-| `animation-direction`     | 指定动画运行方式及结束方式。 | 默认为向前循环，本例打字机使用的是 `alternate` ，即动画结束后沿路反向执行。 |
+| 参数名称 | 含义 | 举例 |
+| --- | --- | --- |
+| `animation-name` | `@keyframes` 的名称 | 如：`auto-typing` |
+| `animation-duration` | 动画持续时间 | 100ms |
+| `animation-time-function` | 运动函数 | 关键帧及逐帧两种模式，如果是关键帧，可以使用 `贝塞尔函数`，逐帧则是使用 `steps`（打字机） |
+| `animation-delay` | 延迟时间 | 0ms |
+| `animation-direction` | 指定动画运行方式及结束方式。 | 默认为向前循环，本例打字机使用的是 `alternate` ，即动画结束后沿路反向执行。 |
 
 <code src="./auto-typing">

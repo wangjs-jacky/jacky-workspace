@@ -1,4 +1,6 @@
 ---
+nav:
+  title: CSS 案例
 group:
   title: 进阶篇
 ---
@@ -50,3 +52,7 @@ group:
 ## 标签导航
 
 <code src="./tab-navbar">
+
+## 点赞按钮
+
+<code src="./thumb-up-button">

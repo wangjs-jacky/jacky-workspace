@@ -1,7 +1,7 @@
 ---
 group:
   title: 基础篇
-  order: 1
+  order: 3
 ---
 
 # 样式计算
@@ -93,6 +93,7 @@ group:
 不考虑低版本浏览器的兼容，移动端的伸缩方案：
 
 公式换算：
+
 $$
 \frac{x}{750} \times 100 \ vw  = \frac{x}{100} \times \frac{100vw}{7.5} = \frac{x}{100} \times 1rem
 $$

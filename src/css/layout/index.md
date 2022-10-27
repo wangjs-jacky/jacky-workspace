@@ -1,6 +1,7 @@
 ---
 group:
   title: 基础篇
+  order: 1
 ---
 
 # 布局方式

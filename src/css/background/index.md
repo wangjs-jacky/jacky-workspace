@@ -1,7 +1,7 @@
 ---
 group:
   title: 基础篇
-  order: 2
+  order: 10
 ---
 
 ## 背景与遮罩
