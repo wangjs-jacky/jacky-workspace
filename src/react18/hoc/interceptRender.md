@@ -80,3 +80,31 @@ const element = super.render();
 ```
 
 <code src="./demo04">
+
+如果是反向继承的话，需要手动继承静态方法,有两种方法：
+
+1. 手动继承，前提是需要知道原生组件的静态方法。
+
+```javascript | pure
+function HOC(Component) {
+  class WrappedComponent extends React.Component {
+    /*...*/
+  }
+  // 必须准确知道应该拷贝哪些方法
+  WrappedComponent.staticMethod = Component.staticMethod;
+  return WrappedComponent;
+}
+```
+
+2.使用第三方库：`hoist-non-react-statics` 自动拷贝
+
+```javascript | pure
+import hoistNonReactStatic from 'hoist-non-react-statics';
+function HOC(Component) {
+  class WrappedComponent extends React.Component {
+    /*...*/
+  }
+  hoistNonReactStatic(WrappedComponent, Component);
+  return WrappedComponent;
+}
+```
