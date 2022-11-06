@@ -1,0 +1,42 @@
+/* 对于主题切换，可以使用根选择器
+
+  :root {
+    --bg: #fff;
+    --text-color: #222;
+    --link-color: #0033cc;
+  }
+
+*/
+
+.theme-color {
+  &.light {
+    --bg: #fff;
+    --text-color: #000;
+    --link-color: #0033cc;
+  }
+  &.dark {
+    --bg: #000;
+    --text-color: #fff;
+    --link-color: orange;
+  }
+
+  height: 120px;
+  text-align: center;
+  background-color: var(--bg);
+  border: 1px solid #000;
+  * {
+    color: var(--text-color);
+  }
+  a {
+    color: var(--link-color);
+  }
+}
+
+/* 识别系统主题色 */
+@media (prefers-color-scheme: dark) {
+  #theme-color {
+    --bg: #000;
+    --text-color: #fff;
+    --link-color: orange;
+  }
+}

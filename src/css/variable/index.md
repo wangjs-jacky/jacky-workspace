@@ -56,3 +56,26 @@ group:
 ## 点赞按钮
 
 <code src="./thumb-up-button">
+
+## 主题色切换
+
+<code src="./theme-color" desc="使用 css 变量实现主题变化">
+
+可使用 `css` 方式，对系统主题色切换
+
+```css
+/* 识别系统主题色 */
+@media (prefers-color-scheme: dark) {
+  #theme-color {
+    --bg: #000;
+    --text-color: #fff;
+    --link-color: orange;
+  }
+}
+```
+
+也可以使用 `js` 去手动控制，下面 `prefersDarkScheme` 上存在一个 `onChange` 函数，当系统主题色切换时触发。
+
+```js
+const prefersDarkScheme = window.matchMedia('(perfers-color-scheme:dark)');
+```
