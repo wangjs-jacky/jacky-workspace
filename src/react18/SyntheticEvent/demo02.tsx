@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 const Wrap = styled.div`
@@ -13,13 +13,13 @@ const Wrap = styled.div`
   align-items: center;
 `;
 
-const FakeModal: React.FC = () => {
-  return <Wrap>请点击此区域</Wrap>;
-};
+const FakeModal: React.FC<any> = forwardRef((props, ref: any) => {
+  return <Wrap ref={ref}>请点击此区域</Wrap>;
+});
 
 const Demo01: React.FC = () => {
   const [showBox, setShowBox] = useState(false);
-  const modalRef = useRef<any>();
+  const modalRef = useRef<HTMLDivElement>();
 
   const handleClickButton = useCallback(() => {
     setShowBox(true);
@@ -38,6 +38,9 @@ const Demo01: React.FC = () => {
       console.log('123');
       e.stopPropagation();
     });
+    return () => {
+      modalRef.current?.removeEventListener('click', () => {});
+    };
   }, [showBox]);
 
   return (
@@ -45,8 +48,8 @@ const Demo01: React.FC = () => {
       <button onClick={handleClickButton}>点击我显示弹窗</button>
       {showBox && (
         /* 使用 stopPropagation 组织弹窗体内的事件 */
-        <div ref={modalRef}>
-          <FakeModal />
+        <div>
+          <FakeModal ref={modalRef} />
         </div>
       )}
     </div>
