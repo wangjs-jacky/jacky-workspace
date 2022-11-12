@@ -15,7 +15,7 @@ order: 1
 
 ## 情况一: `Function Component`
 
-<code src="./demo01" title="HOC：返回 Function Component">
+<code src="./demo01.tsx" title="HOC：返回 Function Component">
 
 ## 情况二：`Class Component`
 

@@ -46,7 +46,7 @@ setComponent(() => c as React.FC);
 <Component {...props} info="123" />;
 ```
 
-<code src="./demo05" title="缓存 Function Function">
+<code src="./demo05.tsx" title="缓存 Function Function">
 
 ```tsx | pure
 // @ts-ignore
@@ -57,6 +57,6 @@ const [Element, setElement] = useState<MaybeNull<JSX.Element>>(null);
 setElement(() => c({ ...props, info: '123' }));
 ```
 
-<code src="./demo06" title="缓存 Function JSX Element">
+<code src="./demo06.tsx" title="缓存 Function JSX Element">
 
 > 注：如果缓存的是 `JSX.Element`,无法动态监听到 `inpurt` 输入框的变化，只能再次通过 `React.render(React.cloneElement(xxx,xxx,xxx))` 这种方式刷新。（暂未演示）

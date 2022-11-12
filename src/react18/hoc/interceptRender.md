@@ -71,7 +71,7 @@ export default Index;
  const element = new ListComponent(this.props as P).render();
 ```
 
-<code src="./demo03">
+<code src="./demo03.tsx">
 
 #### 2.使用反向继承的方式修改
 
@@ -79,7 +79,7 @@ export default Index;
 const element = super.render();
 ```
 
-<code src="./demo04">
+<code src="./demo04.tsx">
 
 如果是反向继承的话，需要手动继承静态方法,有两种方法：
 
