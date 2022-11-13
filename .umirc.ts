@@ -1,19 +1,20 @@
 import { defineConfig } from 'dumi';
+import path from 'path';
 
 export default defineConfig({
   title: 'jacky-workspace-dumi',
-  favicon:
-    '/logo.svg',
+  favicon: '/logo.svg',
   outputPath: 'docs-dist',
   mode: 'site',
   publicPath: '/jacky-workspace-html/',
   manifest: {
-    basePath: '/jacky-workspace-html/'
+    basePath: '/jacky-workspace-html/',
   },
-  base: "/jacky-workspace-html/",
+  base: '/jacky-workspace-html/',
   logo: '/logo.svg',
   alias: {
-    "@": "/src/aHooks/"
+    '@': '/src/aHooks/',
+    roughjs: path.resolve('./node_modules/roughjs/bundled/rough.esm.js'),
   },
   extraBabelPlugins: [
     [
@@ -30,7 +31,7 @@ export default defineConfig({
       .rule('svg')
       .test(/\.svg$/)
       .use('svg-sprite-loader')
-      .loader('svg-sprite-loader')
+      .loader('svg-sprite-loader');
     memo.module
       .rule('svg')
       .test(/\.svg?/)
@@ -49,6 +50,5 @@ export default defineConfig({
     }); */
 
     return memo;
-
-  }
+  },
 });
