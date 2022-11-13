@@ -23,14 +23,7 @@ context?.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
 
 ## 抬笔动作
 
-上一个例子中，使用了 `strokeRect` 和 `fillRect` 是一种复合写法，包含了两个动作。当采用这种绘制方式时，需要有一个抬笔的动作。
-
-```javascript | pure
-context.beginPath();
-context.closePath();
-```
-
-需要分步绘制轮廓和填充
+上一个例子中，使用了 `strokeRect` 和 `fillRect` 是一种复合写法，包含了两个动作,分别是路径绘制 + 绘制动作(fill|stroke)
 
 ```javascript | pure
 /* 路径 */
@@ -39,6 +32,13 @@ context.rect(100, 100, 150, 150);
 context.fill();
 /* 轮廓 */
 context.stroke();
+```
+
+当采用这种绘制方式时，需要有一个抬笔的动作。
+
+```javascript | pure
+context.beginPath();
+context.closePath();
 ```
 
 <code src="./demo02.tsx">
