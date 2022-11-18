@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 
-const Demo02 = () => {
+const Demo03 = () => {
   const divDomRef = useRef<HTMLDivElement>(null);
   const [, update] = useState({});
   if (divDomRef.current) {
@@ -11,10 +11,12 @@ const Demo02 = () => {
       divDomRef.current.style.transform = 'translate(400px, 0)';
     }
     requestAnimationFrame(() => {
-      if (divDomRef.current) {
-        divDomRef.current.style.transition = 'transform 0.5s linear';
-        divDomRef.current.style.transform = 'translate(200px, 0)';
-      }
+      requestAnimationFrame(() => {
+        if (divDomRef.current) {
+          divDomRef.current.style.transform = 'translate(200px, 0)';
+          divDomRef.current.style.transition = 'transform 0.5s linear';
+        }
+      });
     });
   };
 
@@ -31,4 +33,4 @@ const Demo02 = () => {
   );
 };
 
-export default Demo02;
+export default Demo03;
