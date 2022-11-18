@@ -8,7 +8,7 @@ const Demo01 = () => {
   let cancelReq: number;
   const animation = () => {
     const timeStamp = performance.now();
-    if (count.current > 200) return;
+    if (count.current > 400) return;
     if (divDomRef.current) {
       divDomRef.current.style.marginLeft = count.current + 'px';
     }
