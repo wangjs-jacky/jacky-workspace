@@ -1,3 +1,8 @@
+---
+group:
+  title: 通用
+---
+
 ## requestAnimationFrame
 
 `requestAnimationFrame`，简写 `rAF`，引用 MDN 的介绍：
@@ -96,7 +101,7 @@ const localRequestAnimationFrame =
 
    b. `requestIdeCallback` 的执行时机：浏览器空余时间执行，这一点和 `rAF` 有些像，时间限制在一帧的范围内，具体时机是当浏览器执行完 `JS` 以及渲染操作后，如果还有空余时间才会再去执行 `requestIdleCallback` 函数。
 
-2. `rAF` 与 `requestIdleCallback` 的区别： `rAF` 函数是高优先级任务，一定会执行，而 `rLC`函数属于低优先级任务。如果浏览器长期处于繁忙状态的话，因配置第二个参数 `timeout`，如 `requestIdleCallback(cb,{timeout:2000})`
+2. `rAF` 与 `requestIdleCallback` 的区别： `rAF` 函数是高优先级任务，一定会执行，而 `rLC`函数属于低优先级任务。如果浏览器长期处于繁忙状态的话，因配置第二个参数 `timeout`，如 `requestIdleCallback(cb,{timeout:2000})`。
 
 ## 参考文章：
 
