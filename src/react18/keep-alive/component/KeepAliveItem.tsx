@@ -8,14 +8,11 @@ function KeepAliveItem({ cacheId, children }: { cacheId: string; children: React
   const firstRender = useRef(true);
   const parentNode = useRef<HTMLDivElement>(null);
   const { dispatchCacheList, getCacheStatus } = useContext(KeepaliveContext) as StoreType;
-
-  console.log('children 变化了吗？');
-
   /*
      拦截 children ，整体渲染流程如下：
      children 存入 store => Scope 通过 Context 获取 store => 并通过 ScopeItem 负责真实的挂载。
   */
-  const ChildrenComponent = renderWithChildren(children);
+  /* const ChildrenComponent = renderWithChildren(children); */
 
   /* 初始化（同步执行）,此时已获取到 parentNode */
   useLayoutEffect(() => {
@@ -42,7 +39,7 @@ function KeepAliveItem({ cacheId, children }: { cacheId: string; children: React
     /* 2. 组件未被缓存 */
     dispatchCacheList({
       actionType: 'active',
-      payload: { cacheId },
+      payload: { cacheId, parentNode: parentNode.current },
     });
 
     return () => {
@@ -57,8 +54,11 @@ function KeepAliveItem({ cacheId, children }: { cacheId: string; children: React
   /* update 阶段 */
   useLayoutEffect(() => {
     /* KeepAlive非首次渲染且 状态非 unActived */
-    getCacheStatus(cacheId) !== 'unActived' &&
-      !firstRender.current &&
+    console.log('xxxxx', getCacheStatus(cacheId));
+
+    if (getCacheStatus(cacheId) === 'actived' && !firstRender.current) {
+      console.log('yyyyy');
+
       dispatchCacheList({
         actionType: 'update',
         payload: {
@@ -67,6 +67,7 @@ function KeepAliveItem({ cacheId, children }: { cacheId: string; children: React
           children,
         },
       });
+    }
   }, [children]);
 
   return <div ref={parentNode}></div>;

@@ -1,7 +1,7 @@
-
 /* 使用类型组件去缓存数据 */
 
-import React, { ReactNode, useMemo, useRef, useState } from "react";
+import React, { ReactNode, useContext, useMemo, useRef, useState } from 'react';
+import KeepaliveContext from './keepContext';
 
 export interface cacheListType {
   /* 组件的 id */
@@ -9,66 +9,63 @@ export interface cacheListType {
   /* 当前的生命周期 */
   status?: string;
   /* 父节点 */
-  parentNode?: HTMLDivElement | null,
+  parentNode?: HTMLDivElement | null;
   /* 子节点 */
   /* children?: (props?: any) => ReactNode */
-  children?: any
+  children?: any;
 }
 
 function modifyCacheList(cacheList: cacheListType[], cacheId: string, status: string) {
   let index = cacheList.findIndex((item) => {
-    if (item.cacheId === cacheId) return true
+    if (item?.cacheId === cacheId) return true;
   });
   if (index === -1) return;
   cacheList[index].status = status;
 }
 
-const reducer = (cacheList: cacheListType[], actionType: string, payload: cacheListType): cacheListType[] => {
+const reducer = (
+  cacheList: cacheListType[],
+  actionType: string,
+  payload: cacheListType,
+): cacheListType[] => {
   const { cacheId, parentNode, children } = payload;
-  console.log("当前状态时", cacheList, actionType);
+  console.log('当前状态时', cacheList, actionType);
 
-  if (actionType === "created") {
+  if (actionType === 'created') {
     cacheList.push({
       cacheId,
       parentNode: parentNode as any,
       children,
-      status: "created"
-    })
-    console.log("created 后", cacheList);
-    debugger
-
+      status: 'created',
+    });
     return [...cacheList];
-  } else if (actionType === "active") {
+  } else if (actionType === 'active') {
     let index = cacheList.findIndex((item) => {
-      if (item.cacheId === cacheId) return true
+      if (item?.cacheId === cacheId) return true;
     });
     if (index === -1) return cacheList;
-    cacheList[index].status = "active";
-    console.log("active周期", cacheList);
-    debugger;
-    return [...cacheList]
-  } else if (actionType === "unActive") {
-    console.log("children 被缓存了", children, cacheList);
-
+    cacheList[index].status = 'active';
+    cacheList[index].parentNode = parentNode;
+    return [...cacheList];
+  } else if (actionType === 'unActive') {
     let index = cacheList.findIndex((item) => {
-      if (item.cacheId === cacheId) return true
+      if (item?.cacheId === cacheId) return true;
     });
     if (index === -1) return cacheList;
-    cacheList[index].status = "unActive";
+    cacheList[index].status = 'unActive';
     return [...cacheList];
-  } else if (actionType === "actived") {
-    modifyCacheList(cacheList, cacheId, "actived")
+  } else if (actionType === 'actived') {
+    modifyCacheList(cacheList, cacheId, 'actived');
     return [...cacheList];
-  } else if (actionType === "unActived") {
-    modifyCacheList(cacheList, cacheId, "unActived")
+  } else if (actionType === 'unActived') {
+    modifyCacheList(cacheList, cacheId, 'unActived');
     return [...cacheList];
-  } else if (actionType === "update") {
-    console.log("children 被更新了");
+  } else if (actionType === 'update') {
     let index = cacheList.findIndex((item) => {
-      if (item.cacheId === cacheId) return true
+      if (item?.cacheId === cacheId) return true;
     });
     if (index === -1) return cacheList;
-    cacheList[index].status = "actived";
+    cacheList[index].status = 'actived';
     cacheList[index].children = children;
     return [...cacheList];
   }
@@ -76,15 +73,16 @@ const reducer = (cacheList: cacheListType[], actionType: string, payload: cacheL
 };
 
 export interface StoreType {
-  cacheList: cacheListType[],
+  cacheList: cacheListType[];
   dispatchCacheList: (param: dispatchType) => void;
   getCacheStatus: (cacheId: string) => string;
+  deleteCacheId: (cacheId: string) => string;
 }
 
 type dispatchType = {
-  actionType: string,
-  payload: cacheListType
-}
+  actionType: string;
+  payload: cacheListType;
+};
 
 const useStore = () => {
   const [cacheList, setCacheList] = useState<cacheListType[]>([]);
@@ -98,28 +96,32 @@ const useStore = () => {
   /* 封装函数，查询是否缓存 */
   const getCacheStatus = (cacheId: string) => {
     return cacheList.find((item) => {
-      if (item.cacheId === cacheId) return true
-    })?.status
+      if (item?.cacheId === cacheId) return true;
+    })?.status;
   };
 
   const deleteCacheId = (cacheId: string) => {
     let index = cacheList.findIndex((item) => {
-      if (item.cacheId === cacheId) return true
+      if (item?.cacheId === cacheId) return true;
     });
-    delete cacheList[index];
+    cacheList.splice(index, 1);
+    setCacheList([...cacheList]);
   };
 
-  return useMemo(() => ({
-    cacheList,
-    dispatchCacheList,
-    getCacheStatus,
-    deleteCacheId
-  }), [cacheList]);
-}
+  return useMemo(
+    () => ({
+      cacheList,
+      dispatchCacheList,
+      getCacheStatus,
+      deleteCacheId,
+    }),
+    [],
+  );
+};
 
 export const useCacheDestory = () => {
-  const { deleteCacheId } = useStore();
+  const { deleteCacheId } = useContext(KeepaliveContext) as StoreType;
   return deleteCacheId;
-}
+};
 
 export default useStore;
