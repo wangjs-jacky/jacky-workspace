@@ -5,7 +5,7 @@ group:
 order: 4
 ---
 
-## React 数据状态流
+## React 组件复用
 
 以下面这个案例为例，其中 在 `<App />` 中维护 `products` 数组，而在 `<List>` 组件中存在一个 `button` 用于控制 `selectedIndex` 状态。
 
